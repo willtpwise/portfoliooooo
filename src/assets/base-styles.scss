@@ -1,0 +1,110 @@
+@import './variables.scss';
+
+@font-face {
+    font-family: stag-bold;
+    src: url(fonts/stag-bold.otf);
+}
+
+@font-face {
+    font-family: stag-sans-book;
+    src: url(fonts/stag-sans-book.ttf);
+}
+
+body {
+  font-family: stag-sans-book;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: stag-bold;
+  margin: 0;
+  padding: 0 0 1.5rem 0;
+
+  + .subtitle {
+    margin-top: -1.5rem;
+  }
+}
+
+h1 {
+  font-size: 45px;
+}
+h2 {
+  font-size: 35px;
+}
+h3 {
+  font-size: 30px;
+}
+p {
+  margin: 0;
+  padding-bottom: 1.5rem;
+}
+
+
+*:focus {
+  outline-color: $primary;
+  outline-width: 1px;
+  outline-style: dashed;
+}
+
+a {
+  color: $secondary;
+  text-decoration: none;
+  transition: all 0.5s ease;
+
+  &:hover,
+  &:focus,
+  &.is-active {
+    color: $primary;
+    text-decoration: none;
+  }
+}
+
+.container {
+  max-width: $container;
+  padding: 0 20px;
+  margin: 0 auto;
+  width: 100%;
+
+  &.container--fluid {
+    padding: 0 20px;
+    max-width: none;
+  }
+}
+
+.hr {
+  height: 1px;
+  background: $primary;
+  max-width: 380px;
+  margin: 45px auto;
+
+  &.hr--large {
+    margin: 60px auto;
+    height: 2px;
+  }
+}
+
+.button {
+  display: inline-block;
+  margin: 10px 0;
+  padding: 12px 16px;
+  background: $primary;
+  color: #fff;
+  border-radius: $radius;
+  transition: all 0.3s ease;
+
+  + .button {
+    margin-left: 2px;
+  }
+
+  &:hover,
+  &:focus {
+    color: #fff;
+    background: $primary-light;
+  }
+
+  &:focus {
+    outline-color: #fff;
+  }
+}

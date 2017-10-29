@@ -2,16 +2,30 @@
   <header class='page-header'>
     <div class="container page-header-content">
       <h1 class="page-header-title">{{heading}}</h1>
-      <p class="page-header-subtitle subtitle" v-html="subHeading"></p>
+      <p class="page-header-subtitle subtitle" v-if="subHeading" v-html="subHeading"></p>
+      <p class="page-header-subtitle subtitle" v-if="from">
+        <i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;&nbsp;
+        <duration :from='from' :to='to'></duration>
+      </p>
     </div>
     <div class="page-header-bg"></div>
   </header>
 </template>
 <script>
+import duration from 'components/duration.vue'
 export default {
   name: 'page-header',
 
-  props: ['heading', 'subHeading']
+  props: [
+    'heading',
+    'subHeading',
+    'from',
+    'to'
+  ],
+
+  components: {
+    duration
+  }
 }
 </script>
 <style lang='scss'>
@@ -20,6 +34,7 @@ export default {
   color: #fff;
   position: relative;
   overflow: hidden;
+  z-index: 100;
 
   .page-header-content {
     position: relative;

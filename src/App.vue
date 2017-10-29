@@ -15,6 +15,12 @@ export default {
   components: {
     AppHeader,
     AppFooter
+  },
+
+  mounted () {
+    this.$router.afterEach((to, from) => {
+      window.scrollTo(0, 0)
+    })
   }
 }
 </script>

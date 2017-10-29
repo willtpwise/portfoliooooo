@@ -4,11 +4,12 @@
       <nav class="app-header-nav" role="nav" :aria-expanded='open'>
         <ul>
           <li v-for="item in menu">
-            <router-link :to="item.href">{{item.label}}</router-link>
+            <router-link :to="item.href" :tabindex="itemTabIndex" v-html="item.label"></router-link>
           </li>
         </ul>
       </nav>
       <a
+        href="#"
         @click='toggleNav($event)'
         class="app-header-toggle"
         aria-label="Click to toggle the main navigation menu">
@@ -28,6 +29,10 @@
         open: false,
         menu: [
           {
+            href: '/',
+            label: '<i class="fa fa-home" aria-label="Home"></i>'
+          },
+          {
             href: '/work',
             label: 'Work'
           },
@@ -46,6 +51,14 @@
           this.open = false
         } else {
           this.open = true
+        }
+      }
+    },
+
+    computed: {
+      itemTabIndex () {
+        if (!this.open) {
+          return '-1'
         }
       }
     }
@@ -88,17 +101,20 @@
         position: relative;
         top: -100px;
         left: 0;
-        transition: all 0.5s ease;
+        transition: all 0.4s ease;
 
-        &:first-child {
-          transition-duration: 1s
+        &:nth-child(1) {
+          transition-duration: 1.2s
+        }
+        &:nth-child(2) {
+          transition-duration: 0.8s
         }
       }
 
       a {
         display: inline-block;
         padding: 12px 16px;
-        margin: 8px;
+        margin: 5px;
         color: #fff;
         border-radius: $radius;
         background: $primary;
@@ -107,17 +123,13 @@
         &:focus {
           background: $primary_light;
         }
-
-        &:focus {
-          outline-color: #fff;
-        }
       }
     }
 
     .app-header-toggle {
       display: inline-block;
       padding: 12px 16px;
-      margin: 8px;
+      margin: auto 0 auto 8px;
       color: #fff;
       border-radius: $radius;
       background: $primary;
@@ -126,10 +138,6 @@
 
       &:hover {
         background: $primary_light
-      }
-
-      &:focus {
-        outline-color: #fff;
       }
 
       span {
@@ -171,6 +179,18 @@
         li {
           top: 0;
         }
+      }
+    }
+
+    @media #{$tablet} {
+      .app-header-nav a,
+      .app-header-nav .app-header-toggle {
+        padding: 10px 12px;
+        margin: 4px;
+      }
+
+      .app-header-toggle {
+        margin: auto 0 auto 4px;
       }
     }
   }

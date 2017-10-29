@@ -16,6 +16,10 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   font-family: stag-bold;
@@ -34,18 +38,11 @@ h2 {
   font-size: 35px;
 }
 h3 {
-  font-size: 30px;
+  font-size: 28px;
 }
 p {
   margin: 0;
   padding-bottom: 1.5rem;
-}
-
-
-*:focus {
-  outline-color: $primary;
-  outline-width: 1px;
-  outline-style: dashed;
 }
 
 a {
@@ -61,6 +58,11 @@ a {
   }
 }
 
+*:focus {
+  outline-color: $primary;
+  outline-width: 2px;
+}
+
 .container {
   max-width: $container;
   padding: 0 20px;
@@ -70,6 +72,10 @@ a {
   &.container--fluid {
     padding: 0 20px;
     max-width: none;
+  }
+
+  &.container--sm {
+    max-width: 700px;
   }
 }
 
@@ -102,9 +108,5 @@ a {
   &:focus {
     color: #fff;
     background: $primary-light;
-  }
-
-  &:focus {
-    outline-color: #fff;
   }
 }

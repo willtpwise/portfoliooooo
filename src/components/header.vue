@@ -3,7 +3,7 @@
     <div class="container header-content">
       <h1 class="header-title">William Wise</h1>
       <p class="header-sub subtitle">
-        Front End Engineer
+        Front End Developer
       </p>
     </div>
     <div class="header-bg"></div>

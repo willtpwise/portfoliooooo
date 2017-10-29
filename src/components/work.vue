@@ -2,7 +2,7 @@
   <section role="section" class="work_component" aria-labelledby="work">
     <div class="container">
       <h2 id="work">Work</h2>
-      <work-item v-if="work" v-for='(item, index) in work' :work='item'></work-item>
+      <work-item v-if="work" v-for='(item, index) in work' :work='item' :index="index"></work-item>
     </div>
   </section>
 </template>

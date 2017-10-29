@@ -4,61 +4,32 @@
       <h3>{{project.name}}</h3>
       <p v-html='project.desc'></p>
       <div class="project-link">
-        <router-link class="button" v-for='link in project.links' :to='link.href'>{{link.label}}</router-link>
+        <a class="button" v-for='link in project.links' target="_blank" :href='link.href'>{{link.label}}</a>
       </div>
     </div>
     <div class='project-media'>
-      <figure aria-atomic="true">
-        <img :src='currentImage.src' :alt='currentImage.alt'>
-        <figcaption>
-          {{currentImage.caption}}
-        </figcaption>
-      </figure>
-      <ul class="project-nav" aria-label='Image navigation'>
-        <li v-for='(index, image) in project.snaps'>
-          <button
-            @click='switchImage(index)'
-            :aria-label="`Switch to image ${index}`"
-            ></button>
-        </li>
-      </ul>
+      <carousel
+      :autoplay="true"
+      :autoplayTimeout="5000"
+      :per-page="1"
+      :loop="true">
+        <slide v-for="snap in project.snaps">
+          <img :src='snap.src' :alt='snap.caption'>
+        </slide>
+      </carousel>
     </div>
   </div>
 </template>
 <script>
+import { Carousel, Slide } from 'vue-carousel'
 export default {
   name: 'project',
 
   props: ['project'],
 
-  data () {
-    return {
-      currentImageIndex: 0
-    }
-  },
-
-  computed: {
-    currentImage () {
-      return this.project.snaps[this.currentImageIndex]
-    }
-  },
-
-  methods: {
-    nextImage () {
-      if (this.currentImageIndex + 1 === this.project.snaps.length) {
-        this.currentImageIndex = 0
-      } else {
-        this.currentImageIndex ++
-      }
-    },
-
-    prevImage () {
-      if (this.currentImageIndex === 0) {
-        this.currentImageIndex = this.project.snaps.length - 1
-      } else {
-        this.currentImageIndex --
-      }
-    }
+  components: {
+    Carousel,
+    Slide
   }
 }
 </script>
@@ -70,11 +41,26 @@ export default {
   flex-flow: row wrap;
   padding: 35px 0;
 
+  .project-body {
+    padding-right: 20px;
+  }
+  .project-media {
+    padding-left: 20px;
+  }
+
   .project-body,
   .project-media {
     width: 50%;
     margin: auto;
     box-sizing: border-box;
+
+    @media #{$tablet} {
+      & {
+        width: 100%;
+        padding: 0;
+        padding-bottom: 20px;
+      }
+    }
   }
 
   .project-media {

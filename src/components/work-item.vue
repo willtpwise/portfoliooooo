@@ -1,14 +1,24 @@
 <template>
   <div class="work-item">
-    <figure class="work-graphic" aria-atomic="true">
-      <!-- <img :src='currentImage.src' :alt='currentImage.caption'> -->
+    <figure class="work-graphic">
+      <router-link :to='url' tabindex="-1">
+        <img :src='work.logo' :alt='work.name'>
+      </router-link>
     </figure>
     <div class="work-body">
-      <h3>{{work.name}}</h3>
-      <p class="work-period">
-        <i class="fa fa-calendar" aria-label="Duration of employment"></i>
-        <time datetime="20160801">August, 2016</time> - <time datetime="">Present</time>
-      </p>
+      <router-link :to='url' tabindex="-1" class="work-item-title"><h3>{{work.name}}</h3></router-link>
+      <ul class="work-meta">
+        <li class="work-period">
+          <span class="sr-only">Duration of employment</span>
+          <i class="fa fa-calendar" aria-hidden="true"></i>
+          <duration :from='work.roles[0].from' :to='work.roles[work.roles.length - 1].to'></duration>
+        </li>
+        <li class="work-role">
+          <span class="sr-only">My role was</span>
+          <i class="fa fa-id-card-o" aria-hidden='true'></i>
+          {{role}}
+        </li>
+      </ul>
       <p>
         {{work.description}}
       </p>
@@ -17,52 +27,25 @@
   </div>
 </template>
 <script>
+import duration from 'components/duration.vue'
 export default {
   name: 'work-item',
 
-  data () {
-    return {
-      currentImageIndex: 0
-    }
+  components: {
+    duration
   },
 
   computed: {
-    imagePreviews () {
-      let images = []
-      this.work.samples.forEach((sample) => {
-        sample.snaps.forEach((snap) => {
-          images.push(snap)
-        })
-      })
-      return images
-    },
-
-    currentImage () {
-      return this.imagePreviews[this.currentImageIndex]
-    },
-
     url () {
-      return '/work/siteminder'
+      return `/work/${this.index}`
+    },
+
+    role () {
+      return this.work.roles[this.work.roles.length - 1].title
     }
   },
 
-  methods: {
-    changeImage () {
-      if (this.currentImageIndex + 1 === this.imagePreviews.length) {
-        this.currentImageIndex = 0
-      } else {
-        this.currentImageIndex ++
-      }
-    }
-  },
-
-  mounted () {
-    window.setInterval(() => {
-      this.changeImage()
-    }, 3000)
-  },
-
-  props: ['work']
+  props: ['work', 'index']
 }
 </script>
 <style lang='scss'>
@@ -77,6 +60,27 @@ export default {
     border-bottom: 1px solid rgba(#fff, 0.3);
   }
 
+  .work-item-title {
+    color: inherit;
+  }
+
+  .work-meta {
+    list-style: none;
+    margin: -1.5rem 0 1.5rem 0;
+    padding: 0;
+
+    li {
+      display: inline;
+      margin: 0 12px 0 0;
+      padding: 0;
+      font-size: smaller;
+
+      i {
+        margin-right: 0.25em;
+      }
+    }
+  }
+
   .work-graphic {
     width: 250px;
     height: 250px;
@@ -84,10 +88,15 @@ export default {
     overflow: hidden;
     background: $grey-dark;
     margin: 0;
+    transition: all 0.3s ease;
 
     img {
       width: 100%;
       height: auto;
+    }
+
+    &:hover {
+      transform: translateY(-8px);
     }
   }
 
@@ -97,16 +106,6 @@ export default {
     padding-left: 35px;
     width: calc( 100% - 250px );
     box-sizing: border-box;
-
-    .work-period {
-      margin-top: -1.5rem;
-      font-size: smaller;
-
-      i {
-        margin-right: 0.35em;
-      }
-    }
-
   }
 
   @media #{$tablet} {

@@ -1,10 +1,10 @@
 <template>
-  <article class='company'>
+  <article class='company' role="article">
     <page-header :heading='company.name' :from="from" :to="to"></page-header>
     <main role="main">
-      <section class="company-projects">
+      <section role="region" class="company-projects" aria-labelledby="projects">
         <div class="container">
-          <h2>Projects with {{company.name}}</h2>
+          <h2 id="projects">Projects with {{company.name}}</h2>
         </div>
         <div class="company-project" v-for="project in company.projects">
           <div class="container">
@@ -43,7 +43,11 @@ export default {
 
   computed: {
     company () {
-      return work[this.$route.params.company]
+      if (work[this.$route.params.company]) {
+        return work[this.$route.params.company]
+      } else {
+        this.$router.push('/not-found')
+      }
     },
 
     from () {

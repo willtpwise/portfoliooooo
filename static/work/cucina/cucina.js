@@ -6,8 +6,7 @@ export default {
   name: 'Cucina De Luca',
   tags: ['gpt', 'blog', 'group'],
   logo: logo,
-  description: `
-    Cucina De Luca is a family cafe, located in the heart of Carlingford, Sydney.
+  description: `Cucina De Luca is a family cafe, located in the heart of Carlingford, Sydney.
     I wrote the website for the business and guided them through the complexities of SEO and SEM.`,
   roles: [
     {

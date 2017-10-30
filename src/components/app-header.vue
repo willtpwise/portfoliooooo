@@ -1,7 +1,7 @@
 <template>
-  <header class='app-header' :class="{'app-header--open': open}">
+  <header class='app-header' :class="{'app-header--open': open}" role="banner">
     <div class="container">
-      <nav class="app-header-nav" role="nav" :aria-expanded='open'>
+      <nav class="app-header-nav" role="navigation" :aria-expanded='open'>
         <ul>
           <li v-for="item in menu">
             <router-link :to="item.href" :tabindex="itemTabIndex" v-html="item.label"></router-link>

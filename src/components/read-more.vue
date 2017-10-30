@@ -1,5 +1,5 @@
 <template>
-  <section class="read-more">
+  <aside role="complementary" class="read-more">
     <div class="container">
       <h2>More like this</h2>
       <nav class="read-more-links">
@@ -20,7 +20,7 @@
         </div>
       </nav>
     </div>
-  </section>
+  </aside>
 </template>
 <script>
 import work from './../../static/work/index.js'

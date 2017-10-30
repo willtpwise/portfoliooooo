@@ -1,12 +1,12 @@
 <template>
-  <div class='work'>
+  <article class='work' role="article">
     <page-header heading='Work' sub-heading="What I've been up to for the past few years"></page-header>
-    <div class="work-feed">
+    <section class="work-feed">
       <div class="container">
         <work-item v-if="work" v-for='(item, index) in work' :work='item' :index="index"></work-item>
       </div>
-    </div>
-  </div>
+    </section>
+  </article>
 </template>
 <script>
 import pageHeader from 'components/page-header.vue'

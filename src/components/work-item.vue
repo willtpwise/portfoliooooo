@@ -19,9 +19,7 @@
           {{role}}
         </li>
       </ul>
-      <p>
-        {{work.description}}
-      </p>
+      <p v-html="work.description"></p>
       <router-link :to='url' class="button">Read more <i class="fa fa-angle-right" aria-hidden="true"></i></router-link>
     </div>
   </div>

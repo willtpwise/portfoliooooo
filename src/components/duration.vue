@@ -1,7 +1,7 @@
 <template>
   <span class='duration'>
-    <time :datetime="from | dateComplete">{{from | date}}</time> -
-    <time :datetime="to | dateComplete">{{to | date}}</time>
+    <time :datetime="from">{{from}}</time> -
+    <time :datetime="to">{{to}}</time>
   </span>
 </template>
 <script>
@@ -12,13 +12,14 @@ export default {
 
   filters: {
     date (date) {
-      if (date.toLowerCase() === 'present') {
-        return date
-      }
-
-      let d = new Date(date)
-      let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-      return months[d.getMonth()] + ', ' + d.getFullYear()
+      return date
+      // if (date.toLowerCase() === 'present') {
+      //   return date
+      // }
+      //
+      // let d = new Date(date)
+      // let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+      // return months[d.getMonth()] + ', ' + d.getFullYear()
     },
 
     dateComplete (date) {

@@ -1,0 +1,22 @@
+@mixin font-base {
+  font-family: Georgia, serif;
+  font-style: italic;
+}
+
+@mixin font-featured-primary {
+  font-family: Pacifico, cursive;
+  font-style: normal;
+}
+
+@mixin font-featured-secondary {
+  font-family: "Passion One", serif;
+  font-style: normal;
+  text-transform: uppercase;
+}
+
+@mixin pos-center () {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%)
+}

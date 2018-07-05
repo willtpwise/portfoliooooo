@@ -1,0 +1,36 @@
+@import "./variables.scss";
+@import "./mixins.scss";
+
+:root {
+  --color-butter: #{$color-butter};
+  --color-azure: #{$color-azure};
+  --color-peach: #{$color-peach};
+  --color-mandarin: #{$color-mandarin};
+  --color-lime: #{$color-lime};
+  --color-parchment: #{$color-parchment};
+}
+
+body {
+  margin: 0;
+  background: $color-parchment;
+  color: $color-black;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  scroll-behavior: smooth;
+}
+
+h1, h2, h3 {
+  @include font-featured-secondary ();
+}
+
+a {
+  text-decoration: none;
+  transition: all 0.5s ease;
+}

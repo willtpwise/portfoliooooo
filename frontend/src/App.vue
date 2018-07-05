@@ -1,23 +1,26 @@
-<template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
-  </div>
-</template>
-
 <script>
-export default {
-  name: 'App'
+import { Vue, Component } from 'vue-property-decorator'
+import AppFooter from '@/components/AppFooter'
+import AppHeader from '@/components/AppHeader'
+
+@Component({
+  components: {
+    AppFooter,
+    AppHeader
+  }
+})
+export default class App extends Vue {
+
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<template>
+  <div class="app">
+    <app-header />
+    <router-view />
+    <app-footer />
+  </div>
+</template>
+
+<style lang="scss">
 </style>

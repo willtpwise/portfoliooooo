@@ -48,6 +48,10 @@ export default class Workplace extends Vue {
     return `${this.startDate} - ${this.endDate} | ${this.lastHeldTitle}`
   }
 
+  findSuitableLink (company) {
+    return get(company, 'links[0].href')
+  }
+
   async created () {
     await this.fetchWorkItems()
     this.company = await this.getCompanyBySlug(this.slug)
@@ -86,7 +90,8 @@ export default class Workplace extends Vue {
               :key="i"
               :heading="sample.name"
               :description="sample.desc"
-              :image="sample.snaps[0].src">
+              :image="sample.snaps[0].src"
+              :link="findSuitableLink(sample)">
             </work-sample>
           </div>
         </container>

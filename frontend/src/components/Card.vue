@@ -7,9 +7,18 @@ export default class Card extends Vue {
   @Prop() body
   @Prop() image
   @Prop() url
+  @Prop({ default: 'Read more' }) readMore
+
+  get external () {
+    return this.url.indexOf('http') === 0
+  }
 
   navigate (url) {
-    this.$router.push(url)
+    if (this.external) {
+      location.href = url
+    } else {
+      this.$router.push(url)
+    }
   }
 }
 </script>
@@ -25,12 +34,13 @@ export default class Card extends Vue {
       <h2>{{title}}</h2>
     </header>
 
-    <main>
-      {{body}}
+    <main v-html="body">
+
     </main>
 
-    <footer role="contentinfo">
-      <router-link :to="url">Read more</router-link>
+    <footer role="contentinfo" v-if="readMore && url">
+      <a v-if="external" :href="url" taget="_blank">{{ readMore }}</a>
+      <router-link v-else :to="url">{{ readMore }}</router-link>
     </footer>
 
   </article>
@@ -49,8 +59,6 @@ export default class Card extends Vue {
     transition: all 0.5s ease;
 
     &:hover {
-      background: darken($color-peach, 12%);
-      color: #fff;
       box-shadow: 0 2px 20px rgba(#000, 0.1);
       transform: translateY(-5px);
     }
@@ -86,5 +94,7 @@ export default class Card extends Vue {
 
   h2 {
     margin-top: 0;
+    font-size: 2em;
+    margin-bottom: 0.5em;
   }
 </style>

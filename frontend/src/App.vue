@@ -10,7 +10,12 @@ import AppHeader from '@/components/AppHeader'
   }
 })
 export default class App extends Vue {
-
+  created () {
+    this.$router.beforeEach((to, from, next) => {
+      window.scrollTo(0, 0)
+      next()
+    })
+  }
 }
 </script>
 

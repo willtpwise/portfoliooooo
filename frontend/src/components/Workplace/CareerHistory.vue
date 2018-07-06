@@ -99,7 +99,7 @@ export default class CareerHistory extends Vue {
   position: relative;
 
   img {
-    width: 70%;
+    width: 50%;
     @include pos-center ();
   }
 }

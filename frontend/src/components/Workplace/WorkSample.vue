@@ -6,12 +6,12 @@ export default class WorkSample extends Vue {
   @Prop() heading
   @Prop() image
   @Prop() description
-  @Prop({ default: '#' }) link
+  @Prop() link
 }
 </script>
 
 <template>
-  <a :href="link" class="sample">
+  <a :href="link" class="sample" target="_blank">
     <figure class="sample-graphic">
       <img :src="image" :alt="heading">
     </figure>

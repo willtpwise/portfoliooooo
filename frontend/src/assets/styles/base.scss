@@ -33,4 +33,11 @@ h1, h2, h3 {
 a {
   text-decoration: none;
   transition: all 0.5s ease;
+  color: $color-mandarin
+}
+
+.button {
+  padding: 0.8em;
+  display: inline-block;
+
 }

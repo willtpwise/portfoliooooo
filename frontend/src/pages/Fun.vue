@@ -8,7 +8,7 @@ import AppSection from '@/components/AppSection'
 import PageTitle from '@/components/PageTitle'
 import { get } from 'lodash'
 
-const WorkStore = namespace('Work')
+const FunStore = namespace('Fun')
 
 @Component({
   components: {
@@ -18,42 +18,42 @@ const WorkStore = namespace('Work')
     PageTitle
   }
 })
-export default class Work extends Vue {
-  @WorkStore.Action fetchWorkItems
-  @WorkStore.State workItems
+export default class Fun extends Vue {
+  @FunStore.Action fetchFunItems
+  @FunStore.State funItems
 
-  title = 'My work'
-  subTitle = 'Samples of my work as a developer'
+  title = 'Just for fun'
+  subTitle = `What I've been working on in my spare time`
 
-  loadSuitableImage (workItem) {
-    const firstSnap = get(workItem, 'projects[0].snaps[0].src')
+  loadSuitableImage (funItem) {
+    const firstSnap = get(funItem, 'projects[0].snaps[0].src')
     return firstSnap
   }
 
   created () {
-    this.fetchWorkItems()
+    this.fetchFunItems()
 
     SetPageMeta({
-      title: 'My work',
-      desc: 'Examples of my work as a front end developer'
+      title: 'Just for fun',
+      desc: `What I've been working on in my spare time`
     })
   }
 }
 </script>
 
 <template>
-  <div class="work">
+  <div class="fun">
     <page-title :heading="title" :sub="subTitle" />
 
-    <app-section class="work-feed">
+    <app-section class="fun-feed">
       <container>
         <card
-          v-for="(item, slug) in workItems"
+          v-for="(item, slug) in funItems"
           :key="slug"
           :title="item.name"
           :body="item.description"
-          :url="`/work/${slug}/`"
-          :image="loadSuitableImage(item)">
+          :url="item.link.href"
+          :image="item.graphic.src">
         </card>
       </container>
     </app-section>
@@ -62,7 +62,7 @@ export default class Work extends Vue {
 
 <style lang="scss" scoped>
 
-/* deep */ .work-feed > .container {
+/* deep */ .fun-feed > .container {
   display: grid;
   grid-template-columns: 33.333% 33.333% 33.333%;
   grid-template-rows: auto;

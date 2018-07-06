@@ -1,6 +1,8 @@
 <script>
 import { Vue, Component, Prop } from 'vue-property-decorator'
-import GitHubIcon from '@/assets/images/GitHub.svg'
+import PaintIcon from '@/assets/images/Paint.svg'
+import CodeIcon from '@/assets/images/Code.svg'
+import ChalkboardIcon from '@/assets/images/Chalkboard.svg'
 
 @Component
 export default class RoleIcon extends Vue {
@@ -10,14 +12,23 @@ export default class RoleIcon extends Vue {
   // The first icon acts as a default
   icons = [
     {
-      roles: ['frontend'],
-      src: GitHubIcon
+      roles: ['front end developer'],
+      src: PaintIcon
+    },
+    {
+      roles: ['software engineer'],
+      src: CodeIcon
+    },
+    {
+      roles: ['lead web developer'],
+      src: ChalkboardIcon
     }
   ]
 
   get icon () {
+    const role = this.role.toLowerCase()
     for (let icon of this.icons) {
-      if (icon.roles.includes(this.role)) {
+      if (icon.roles.includes(role)) {
         return icon
       }
     }

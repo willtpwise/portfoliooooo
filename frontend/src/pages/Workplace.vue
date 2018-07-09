@@ -158,6 +158,10 @@ export default class Workplace extends Vue {
     .workplace-description {
       border-right: none;
       border-bottom: 4px dotted $color-peach;
+
+      h2 {
+        font-size: 3em;
+      }
     }
   }
 </style>

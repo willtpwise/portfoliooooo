@@ -3,12 +3,12 @@ import { Vue, Component, Prop } from 'vue-property-decorator'
 
 @Component
 export default class Container extends Vue {
-
+  @Prop({ default: false }) small
 }
 </script>
 
 <template>
-  <div class="container">
+  <div class="container" :class="{ 'container--small': small }">
     <slot />
   </div>
 </template>
@@ -17,5 +17,10 @@ export default class Container extends Vue {
 .container {
   width: 100%;
   padding: 0 2em;
+}
+
+.container--small {
+  max-width: 1000px;
+  margin: 0 auto;
 }
 </style>

@@ -6,9 +6,13 @@ import techspace from './images/techspace.jpg'
 import customerSuccess from './images/customer-success.jpg'
 import welcome from './images/welcome.jpg'
 import home from './images/home.jpg'
+import gha from './images/gha.jpg'
+import sputnik from './images/sputnik.jpg'
 import ebook from './images/ebook.jpg'
 import quote from './images/quote.jpg'
 import logo from './images/logo.svg'
+
+
 export default {
   name: 'SiteMinder',
   tags: ['current'],
@@ -57,6 +61,30 @@ export default {
         {
           label: 'Visit Sample',
           href: 'https://www.siteminder.com/'
+        }
+      ]
+    },
+    {
+      name: 'Internal Design System',
+      desc: `
+        Alongside a team of front end developers I contributed to SiteMinder's design system – Sputnik, which is a branded Vue.js framework used by the company's various applications.
+      `,
+      snaps: [
+        {
+          src: sputnik,
+          caption: 'The Sputnik home page'
+        }
+      ]
+    },
+    {
+      name: 'Google Hotel Ads',
+      desc: `
+        I was the main front end developer working on SiteMinder's integration with Google's Hotel Ad platform, which saw me developing an app that would serve ~15,000 customers from day one.
+      `,
+      snaps: [
+        {
+          src: gha,
+          caption: 'The GHA home page'
         }
       ]
     },

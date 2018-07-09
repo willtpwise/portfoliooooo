@@ -6,7 +6,7 @@ import JustForFunTile from '@/components/Home/JustForFunTile'
 import WorkTile from '@/components/Home/WorkTile'
 import SocialTile from '@/components/Home/SocialTile'
 import LocationTile from '@/components/Home/LocationTile'
-import RetroTv from '@/components/Home/RetroTv'
+import SkillsTile from '@/components/Home/SkillsTile'
 
 @Component({
   components: {
@@ -15,7 +15,7 @@ import RetroTv from '@/components/Home/RetroTv'
     WorkTile,
     SocialTile,
     LocationTile,
-    RetroTv
+    SkillsTile
   }
 })
 export default class Home extends Vue {
@@ -53,10 +53,8 @@ export default class Home extends Vue {
   <article class="home">
     <intro-tile class="home-tile home-intro" />
     <social-tile class="home-tile home-social" />
+    <skills-tile class="home-tile home-skills" />
     <just-for-fun-tile class="home-tile home-fun" />
-    <div class="home-tile home-tv">
-      <!-- <retro-tv /> -->
-    </div>
     <work-tile class="home-tile home-work" />
   </article>
 </template>
@@ -85,7 +83,7 @@ export default class Home extends Vue {
   grid-row-end: span 1;
 }
 
-.home-tv {
+.home-skills {
   grid-column-start: 6;
   grid-column-end: span 3;
   grid-row-start: 2;

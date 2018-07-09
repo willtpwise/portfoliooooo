@@ -11,6 +11,10 @@ export default class AppNav extends Vue {
       href: '/work/'
     },
     {
+      name: 'Skills',
+      href: '/skills/'
+    },
+    {
       name: 'Just for fun',
       href: '/fun/'
     },
@@ -30,6 +34,13 @@ export default class AppNav extends Vue {
     } else {
       return 'Open the menu'
     }
+  }
+
+  created () {
+    this.$router.beforeEach((to, from, next) => {
+      this.open = false
+      next()
+    })
   }
 }
 </script>
@@ -79,7 +90,8 @@ a {
     transition: all 0.5s ease;
   }
   &:hover,
-  &:focus {
+  &:focus,
+  &.router-link-exact-active {
     &:after {
       width: calc(100% - 3em);
     }

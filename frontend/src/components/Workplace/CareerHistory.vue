@@ -43,7 +43,7 @@ export default class CareerHistory extends Vue {
     </ol>
 
     <div class="history-end">
-      {{lastRole.from}}
+      {{lastRole.to}}
     </div>
   </div>
 </template>

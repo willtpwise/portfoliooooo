@@ -5,6 +5,7 @@ import Work from '@/pages/Work'
 import Workplace from '@/pages/Workplace'
 import Fun from '@/pages/Fun'
 import Contact from '@/pages/Contact'
+import Skills from '@/pages/Skills'
 
 Vue.use(Router)
 
@@ -39,6 +40,12 @@ export default new Router({
       path: '/contact/',
       name: 'Contact',
       component: Contact
+    },
+
+    {
+      path: '/skills/',
+      name: 'Skills',
+      component: Skills
     }
   ]
 })

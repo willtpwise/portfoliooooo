@@ -24,6 +24,9 @@ export default class WorkSample extends Vue {
 </template>
 
 <style lang="scss" scoped>
+@import "@/assets/styles/variables.scss";
+@import "@/assets/styles/mixins.scss";
+
 .sample {
   display: grid;
   grid-template-columns: 40% 60%;
@@ -66,5 +69,16 @@ figure {
 
 img {
   width: 100%;
+  border: 1px solid #f2f2f2;
+}
+
+@media screen and (max-width: $break-sm) {
+  .sample {
+    display: block;
+
+    figure {
+      margin: 0;
+    }
+  }
 }
 </style>

@@ -5,8 +5,10 @@ import pricing from './images/pricing.jpg'
 import techspace from './images/techspace.jpg'
 import customerSuccess from './images/customer-success.jpg'
 import welcome from './images/welcome.jpg'
+import channelManager from './images/channel-manager.png'
+import sso from './images/sso.png'
 import home from './images/home.jpg'
-import gha from './images/gha.jpg'
+import gha from './images/gha.png'
 import sputnik from './images/sputnik.jpg'
 import ebook from './images/ebook.jpg'
 import quote from './images/quote.jpg'
@@ -15,8 +17,8 @@ import logo from './images/logo.svg'
 
 export default {
   name: 'SiteMinder',
-  tags: ['current'],
-  logo: logo,
+  tags: ['current', 'SM', 'site minder'],
+  logo,
   description: `I've been working with SiteMinder since 2016 as a Front End Engineer, and more recently as a Lead Web Developer managing a team of three.`,
   roles: [
     {
@@ -26,22 +28,73 @@ export default {
     },
     {
       title: 'Lead Web Developer',
-      from: 'February, 2017',
-      to: 'March, 2018'
+      from: 'March, 2017',
+      to: 'August, 2018'
     },
     {
       title: 'Software Engineer',
       from: 'March, 2018',
+      to: 'August, 2018'
+    },
+    {
+      title: 'Front End Tech Lead',
+      from: 'August, 2018',
       to: 'Present'
     }
   ],
   projects: [
     {
+      name: 'The Channel Manager',
+      desc: `
+        My main project with SiteMinder was to re-develop their cornerstone product "The Channel Manager" from a legacy Angular application to a more moden Vue.js, GraphQL and Node tech stack.
+      `,
+      snaps: [
+        {
+          src: channelManager,
+          caption: 'The Channel Manager'
+        },
+      ],
+    },
+    {
+      name: 'Single Sign On',
+      desc: `
+        I worked on the SSO project with SiteMinder to enhance the experience and security for customers when switching between products. The project saw me working closely alongside designers, UX professionals and senior architects.
+      `,
+      snaps: [
+        {
+          src: sso,
+          caption: 'The SiteMinder.com login page'
+        },
+      ],
+      links: [
+        {
+          label: 'Visit Sample',
+          href: 'https://login.siteminder.com/'
+        }
+      ],
+    },
+    {
+      name: 'Google Hotel Ads',
+      desc: `
+        When starting my role as a Software Engineer with SiteMinder I worked on the Google Hotel Ads project which saw me delivering both front and back end code using Vue.js, GraphQL and Node. Our databases made use of MySQL and Cassandra.
+      `,
+      snaps: [
+        {
+          src: gha,
+          caption: 'The GHA Dashboard'
+        },
+      ],
+      links: [
+        {
+          label: 'Visit Sample',
+          href: 'https://www.siteminder.com/'
+        }
+      ]
+    },
+    {
       name: 'SiteMinder.com Website',
       desc: `
-        I'm the lead developer working on the SiteMinder.com website. The
-        website runs on Wordpress, supports six languages and is maintained
-        using a Webpack build.
+        In my second role with SiteMinder, I was the lead developer working on the SiteMinder.com website.
       `,
       snaps: [
         {
@@ -73,18 +126,6 @@ export default {
         {
           src: sputnik,
           caption: 'The Sputnik home page'
-        }
-      ]
-    },
-    {
-      name: 'Google Hotel Ads',
-      desc: `
-        I was the main front end developer working on SiteMinder's integration with Google's Hotel Ad platform, which saw me developing an app that would serve ~15,000 customers from day one.
-      `,
-      snaps: [
-        {
-          src: gha,
-          caption: 'The GHA home page'
         }
       ]
     },

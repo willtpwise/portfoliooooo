@@ -18,13 +18,23 @@ export default {
     {
       title: 'Front End Developer',
       from: 'August, 2016',
-      to: 'February, 2017'
+      to: 'March, 2017'
     },
     {
       title: 'Lead Web Developer',
-      from: 'February, 2017',
+      from: 'March, 2017',
+      to: 'August, 2018'
+    },
+    {
+      title: 'Software Engineer',
+      from: 'March, 2018',
+      to: 'August, 2018'
+    },
+    {
+      title: 'Front End Tech Lead',
+      from: 'August, 2018',
       to: 'Present'
-    }
+    },
   ],
   projects: [
     {

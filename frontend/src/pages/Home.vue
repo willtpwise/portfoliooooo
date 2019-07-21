@@ -126,6 +126,7 @@ export default class Home extends Vue {
   }
 
   .home-social,
+  .home-skills,
   .home-tv {
     display: none;
   }

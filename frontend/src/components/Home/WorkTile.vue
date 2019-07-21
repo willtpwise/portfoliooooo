@@ -15,7 +15,7 @@ export default class WorkTile extends Vue {
 </script>
 
 <template>
-  <section class="work" role="region">
+  <section class="work" role="region" id="home-work">
     <router-link :to="target">
       <rainbow-ribbon class="top" />
       <rainbow-ribbon class="bottom" />

@@ -7,12 +7,13 @@ export default class IntroTile extends Vue {
   role = 'front end dev'
 
   scrollToFirstSection () {
-    const firstSection = this.$el.parentNode.querySelector('.home-work')
-    if (firstSection) {
-      firstSection.scrollIntoView()
-    } else {
-      console.error('Unable to find suitable el to scroll to')
-    }
+
+    const section = document.querySelector('#home-work')
+    const target = section.querySelector('a')
+
+    section.scrollIntoView()
+    target.focus()
+
   }
 }
 </script>
@@ -24,7 +25,7 @@ export default class IntroTile extends Vue {
       <p>{{role}}</p>
     </div>
 
-    <div @click="scrollToFirstSection" class="go-down" aria-hidden="true"></div>
+    <a @click="scrollToFirstSection" class="go-down" href="#home-work" aria-label="Scroll down to the next section"></a>
   </header>
 </template>
 
@@ -68,6 +69,8 @@ export default class IntroTile extends Vue {
   transform: translateX(-50%);
   display: none;
   cursor: pointer;
+  width: 40px;
+  height: 40px;
 
   // The angle el
   &:before,
@@ -79,18 +82,19 @@ export default class IntroTile extends Vue {
     position: absolute;
     display: inline-block;
     border-radius: 4px;
+    bottom: 0;
   }
 
   // The left angle
   &:before {
-    right: -4px;
-    transform: rotate(40deg);
+    left: calc(50% - 2px);
+    transform: rotate(40deg) translateX(-100%);
   }
 
   // The right angle
   &:after {
-    left: -4px;
-    transform: rotate(-40deg);
+    right: calc(50% - 1px);
+    transform: rotate(-40deg) translateX(100%);
   }
 }
 

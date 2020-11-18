@@ -22,7 +22,6 @@ export default class IntroTile extends Vue {
   <header class="intro">
     <div class="intro-content">
       <h1>{{title}}</h1>
-      <p>{{role}}</p>
     </div>
 
     <a @click="scrollToFirstSection" class="go-down" href="#home-work" aria-label="Scroll down to the next section"></a>

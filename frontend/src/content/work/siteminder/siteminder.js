@@ -43,7 +43,7 @@ export default {
     {
       title: "Principal Engineer",
       from: "June, 2019",
-      to: "Present"
+      to: "August, 2020"
     }
   ],
   projects: [
